@@ -462,9 +462,16 @@ body[data-lang="en"] .about__pillars h4 { font-family: var(--font-en-display); f
 .pill { width: max-content; padding: 4px 8px; border-radius: 6px; background: var(--cream); color: var(--red); font-family: var(--font-en-display); font-size: 12px; letter-spacing: .18em; transition: background .2s, color .2s; }
 
 /* ---------- candidate ---------- */
-.cand { padding: clamp(60px, 10vw, 140px) 0; background: linear-gradient(180deg, transparent, rgba(215,35,35,.04) 40%, transparent); border-top: 1px solid rgba(0,0,0,.08); }
-.cand__grid { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: clamp(28px, 4vw, 60px); align-items: start; }
+.cand { padding: clamp(60px, 10vw, 140px) 0; background: linear-gradient(180deg, transparent, rgba(215,35,35,.04) 40%, transparent); border-top: 1px solid rgba(0,0,0,.08); overflow: hidden; }
+.cand__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
 .cand__label { grid-column: 1 / -1; }
+.cand__portrait { min-width: 0; }
+.cand__body { min-width: 0; }
 
 .cand__portrait { grid-column: 1; position: relative; }
 .cand__portrait-frame {
@@ -538,10 +545,10 @@ body[data-lang="hi"] .cand__frame-bold { font-weight: 700; font-style: normal; }
 body[data-lang="hi"] .cand__frame-hl { font-style: normal; }
 .cand__frame span + span { margin-left: .35em; }
 
-.cand__name { margin: 0; line-height: .95; }
-.cand__name-hi { display: block; font-family: var(--font-hi-display); font-weight: 400; font-size: clamp(48px, 7vw, 96px); color: var(--ink); }
+.cand__name { margin: 0; line-height: 1; overflow-wrap: break-word; }
+.cand__name-hi { display: block; font-family: var(--font-hi-display); font-weight: 400; font-size: clamp(36px, 5.2vw, 72px); color: var(--ink); overflow-wrap: break-word; hyphens: auto; }
 body[data-lang="en"] .cand__name-hi { font-family: var(--font-en-display); font-style: italic; font-weight: 500; }
-.cand__name-alias { display: block; margin-top: 10px; font-family: var(--font-en-display); font-style: italic; font-size: clamp(18px, 2vw, 24px); color: var(--red); }
+.cand__name-alias { display: block; margin-top: 6px; font-family: var(--font-en-display); font-style: italic; font-size: clamp(16px, 1.8vw, 22px); color: var(--red); }
 .cand__name-alias em { font-weight: 600; font-style: italic; color: var(--ink); background: linear-gradient(transparent 62%, rgba(199,154,58,.3) 62%); padding: 0 .15em; }
 .cand__tag { margin: 0; font-family: var(--font-en-display); font-style: italic; color: var(--ink-soft); font-size: 18px; }
 .cand__list { list-style: none; margin: 10px 0; padding: 0; display: grid; gap: 12px; }
@@ -900,7 +907,7 @@ body[data-lang="en"] .sm-card strong { font-family: var(--font-en-display); font
 .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- responsive ---------- */
-@media (max-width: 1040px) {
+@media (max-width: 1120px) {
   .hero__grid {
     grid-template-columns: 1fr;
     grid-template-areas: "meta" "title" "tagline" "cta" "card" "scroll";
@@ -908,7 +915,7 @@ body[data-lang="en"] .sm-card strong { font-family: var(--font-en-display); font
   .about__grid, .cand__grid, .manif__grid, .fb__grid { grid-template-columns: 1fr; }
   .about__cols, .about .section-title, .manif__title, .manif__body, .cand__body, .fb__copy, .fb__form, .booths__note { grid-column: 1; }
   .about__label, .manif__label { position: static; }
-  .cand__portrait { max-width: 360px; }
+  .cand__portrait { max-width: 340px; }
   .booths__head { grid-template-columns: 1fr; }
   .foot__grid { grid-template-columns: 1fr; }
   .foot__nav, .foot__tag { justify-self: start; text-align: left; }
