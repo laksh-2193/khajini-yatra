@@ -486,6 +486,40 @@ body[data-lang="en"] .about__pillars h4 { font-family: var(--font-en-display); f
 }
 
 .cand__body { grid-column: 2; display: grid; gap: 18px; align-content: start; }
+.cand__kin {
+  margin: 0; display: inline-flex; width: max-content; max-width: 100%;
+  padding: 6px 12px; border-radius: 999px;
+  font-family: var(--font-en-display); font-weight: 700;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  background: rgba(0,0,0,.06); color: var(--ink);
+  border: 1px solid rgba(0,0,0,.08);
+}
+body[data-lang="hi"] .cand__kin { font-family: var(--font-hi); font-weight: 600; letter-spacing: .02em; text-transform: none; font-size: 13px; }
+
+.cand__frame {
+  margin: 2px 0 6px;
+  font-family: var(--font-en-display); font-style: italic;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3; color: var(--ink);
+  display: inline; max-width: 30ch;
+}
+body[data-lang="hi"] .cand__frame { font-family: var(--font-hi-serif); font-style: normal; }
+.cand__frame-bold {
+  font-weight: 700; font-style: italic;
+}
+body[data-lang="hi"] .cand__frame-bold { font-weight: 700; font-style: normal; }
+.cand__frame-hl {
+  display: inline;
+  background: linear-gradient(transparent 58%, rgba(215,35,35,.28) 58%, rgba(215,35,35,.28) 92%, transparent 92%);
+  padding: 0 .15em;
+  font-weight: 800; font-style: italic;
+  color: var(--red-deep);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+body[data-lang="hi"] .cand__frame-hl { font-style: normal; }
+.cand__frame span + span { margin-left: .35em; }
+
 .cand__name { margin: 0; line-height: .95; }
 .cand__name-hi { display: block; font-family: var(--font-hi-display); font-weight: 400; font-size: clamp(48px, 7vw, 96px); color: var(--ink); }
 body[data-lang="en"] .cand__name-hi { font-family: var(--font-en-display); font-style: italic; font-weight: 500; }
