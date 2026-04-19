@@ -496,6 +496,24 @@ body[data-lang="en"] .about__pillars h4 { font-family: var(--font-en-display); f
 }
 body[data-lang="hi"] .cand__kin { font-family: var(--font-hi); font-weight: 600; letter-spacing: .02em; text-transform: none; font-size: 13px; }
 
+.cand__by {
+  display: inline-flex; align-items: center; gap: 10px; width: max-content; max-width: 100%;
+  padding: 8px 14px;
+  background: var(--ink); color: var(--cream);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 10px 24px -16px rgba(0,0,0,.5);
+}
+.cand__by::before {
+  content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--red);
+  box-shadow: 0 0 0 0 rgba(215,35,35,.6); animation: pulse 1.6s infinite;
+}
+.cand__by-lbl {
+  font-family: var(--font-en-display); font-weight: 700;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+}
+body[data-lang="hi"] .cand__by-lbl { font-family: var(--font-hi-serif); letter-spacing: .02em; text-transform: none; font-weight: 600; font-size: 14px; }
+
 .cand__frame {
   margin: 2px 0 6px;
   font-family: var(--font-en-display); font-style: italic;
