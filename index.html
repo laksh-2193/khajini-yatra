@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Khajni Yatra · खजनी यात्रा — Ghar Chhodo, Khajni Jodo, Rukh Modo</title>
+<meta name="description" content="Khajni Yatra — a grassroots listening journey by Vidya Sagar urf Chote Bhai across 455 booths. Hear the people. Build the manifesto from the ground up." />
+<meta name="theme-color" content="#D72323" />
+<meta property="og:title" content="Khajni Yatra — खजनी यात्रा" />
+<meta property="og:description" content="घर छोड़ो · खजनी जोड़ो · रुख मोड़ो — A journey of listening across 455 booths." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&family=Mukta:wght@300;400;500;600;700;800&family=Yatra+One&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<!-- Google Translate widget (multilingual) -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,hi,ur,bn,ta,te,mr,gu,pa,kn,ml,or,as,ne',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+</head>
+<body data-lang="en">
+
+<!-- paper grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- top utility bar -->
+<div class="topbar">
+  <div class="wrap topbar__row">
+    <div class="topbar__left">
+      <span class="dot red"></span>
+      <span class="topbar__ticker" aria-live="polite">
+        <span data-en="Live journey · updates from the villages" data-hi="यात्रा जारी · गाँवों से ताज़ा ख़बर">यात्रा जारी · गाँवों से ताज़ा ख़बर</span>
+      </span>
+    </div>
+    <div class="topbar__right">
+      <div id="google_translate_element" class="gt"></div>
+      <button class="lang-toggle" data-lang-toggle aria-label="Toggle language">
+        <span class="lang-pill" data-lang-hi>हिन्दी</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-pill" data-lang-en>EN</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- main nav -->
+<header class="nav">
+  <div class="wrap nav__row">
+    <a class="brand" href="#top" aria-label="Khajni Yatra home">
+      <svg class="brand__cycle" viewBox="0 0 64 40" aria-hidden="true">
+        <circle cx="14" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="50" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M14 28 L28 10 L42 28 L32 28 L26 18 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M42 28 L34 12 L40 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="14" cy="28" r="1.8" fill="currentColor"/>
+        <circle cx="50" cy="28" r="1.8" fill="currentColor"/>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__hi">खजनी यात्रा</span>
+        <span class="brand__en">KHAJNI YATRA</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about"><span data-en="About" data-hi="परिचय">परिचय</span></a>
+      <a href="#candidate"><span data-en="Candidate" data-hi="प्रत्याशी">प्रत्याशी</span></a>
+      <a href="#booths"><span data-en="Booths" data-hi="बूथ">बूथ</span></a>
+      <a href="#manifesto"><span data-en="Manifesto" data-hi="घोषणापत्र">घोषणापत्र</span></a>
+      <a href="#poll"><span data-en="Poll" data-hi="जनमत">जनमत</span></a>
+      <a href="#feedback"><span data-en="Your Voice" data-hi="आपकी आवाज़">आपकी आवाज़</span></a>
+      <a class="nav__cta" href="#join"><span data-en="Follow" data-hi="फॉलो करें">फॉलो करें</span></a>
+    </nav>
+    <button class="nav__burger" aria-label="Open menu" data-burger>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <!-- wide poster banner: drop real images into assets/images/poster-1.jpg .. poster-3.jpg.
+       Carousel ready (data-poster-slot), currently shows a single styled placeholder. -->
+  <figure class="poster wrap" data-poster-slot>
+    <div class="poster__frame">
+      <img src="assets/images/poster-1.jpg" alt="Khajni Yatra poster" class="poster__img"
+           onerror="this.style.display='none'; this.parentElement.classList.add('is-empty');" />
+      <div class="poster__fallback" aria-hidden="true">
+        <div class="poster__fallback-bg"></div>
+        <div class="poster__fallback-inner">
+          <span class="poster__hi">खजनी&nbsp;यात्रा</span>
+          <span class="poster__en">GHAR CHHODO · KHAJNI JODO · RUKH MODO</span>
+        </div>
+      </div>
+      <span class="poster__date">
+        <strong data-en="20 APR" data-hi="२० अप्रैल">२० अप्रैल</strong>
+        <small data-en="YATRA BEGINS · 2026" data-hi="यात्रा आरम्भ · २०२६">यात्रा आरम्भ · २०२६</small>
+      </span>
+      <span class="poster__chip">
+        <span class="live-dot"></span>
+        <span data-en="Live" data-hi="लाइव">लाइव</span>
+      </span>
+    </div>
+  </figure>
+
+  <div class="hero__grid wrap">
+    <div class="hero__meta">
+      <span class="stamp" aria-hidden="true">
+        <svg class="stamp__svg" viewBox="0 0 200 200">
+          <defs>
+            <path id="stamp-top" d="M 26,100 A 74,74 0 0,1 174,100"/>
+          </defs>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle class="stamp__dash" cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>
+          <text fill="currentColor" font-family="Fraunces, Georgia, serif" font-size="14" font-weight="600" letter-spacing="3">
+            <textPath href="#stamp-top" startOffset="50%" text-anchor="middle">KHAJNI · YATRA · BEGINS</textPath>
+          </text>
+          <text x="100" y="160" text-anchor="middle" fill="currentColor" font-family="Fraunces, Georgia, serif" font-size="11" font-weight="600" letter-spacing="4">20 · APRIL · 2026</text>
+          <g transform="translate(100 113)">
+            <path d="M-8 0 L0 -10 L8 0 L0 -3 Z" fill="currentColor"/>
+            <circle r="2" cy="-18" fill="currentColor"/>
+          </g>
+        </svg>
+      </span>
+      <p class="hero__kicker">
+        <span data-en="A listening journey across 455 booths" data-hi="४५५ बूथों की सुनवाई यात्रा">४५५ बूथों की सुनवाई यात्रा</span>
+      </p>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__title-hi">खजनी<br/>यात्रा</span>
+      <span class="hero__title-en"><em>Khajni</em> Yatra</span>
+    </h1>
+
+    <div class="hero__tagline">
+      <div class="hero__rule"></div>
+      <p class="hero__tag-hi">घर&nbsp;छोड़ो · खजनी&nbsp;जोड़ो · रुख़&nbsp;मोड़ो</p>
+      <p class="hero__tag-en">Ghar Chhodo · Khajni Jodo · Rukh Modo</p>
+    </div>
+
+    <div class="hero__cta">
+      <a href="#feedback" class="btn btn--red">
+        <span data-en="Give your suggestion" data-hi="अपना सुझाव दें">अपना सुझाव दें</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#poll" class="btn btn--ghost">
+        <span data-en="Cast your voice" data-hi="अपनी राय दीजिए">अपनी राय दीजिए</span>
+      </a>
+    </div>
+
+    <aside class="hero__card">
+      <div class="hero__card-head">
+        <span class="dot green"></span>
+        <span data-en="Candidate" data-hi="प्रत्याशी">प्रत्याशी</span>
+      </div>
+      <h3 class="hero__card-name">
+        <span data-en="Vidya Sagar" data-hi="विद्या सागर">विद्या सागर</span>
+      </h3>
+      <p class="hero__card-sub">
+        <span data-en="urf Chote Bhai" data-hi="उर्फ़ छोटे भाई">उर्फ़ छोटे भाई</span>
+      </p>
+      <div class="hero__card-meta">
+        <div><strong data-en="455" data-hi="४५५">४५५</strong><span data-en="Booths" data-hi="बूथ">बूथ</span></div>
+        <div><strong>∞</strong><span data-en="Conversations" data-hi="बातचीत">बातचीत</span></div>
+        <div><strong data-en="1" data-hi="१">१</strong><span data-en="Mission" data-hi="मक़सद">मक़सद</span></div>
+      </div>
+    </aside>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </div>
+
+  <!-- marquee strip -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>★ घर छोड़ो</span><span>★ खजनी जोड़ो</span><span>★ रुख़ मोड़ो</span>
+      <span>★ सुनो · समझो · बदलो</span>
+      <span>★ LISTEN · UNDERSTAND · CHANGE</span>
+      <span>★ यात्रा आरम्भ · २० अप्रैल २०२६</span>
+      <span>★ घर छोड़ो</span><span>★ खजनी जोड़ो</span><span>★ रुख़ मोड़ो</span>
+      <span>★ सुनो · समझो · बदलो</span>
+      <span>★ LISTEN · UNDERSTAND · CHANGE</span>
+      <span>★ यात्रा आरम्भ · २० अप्रैल २०२६</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about__grid">
+    <div class="about__label">
+      <span class="label-num" data-en="01" data-hi="०१">०१</span>
+      <span class="label-txt" data-en="The Why" data-hi="क्यों?">क्यों?</span>
+    </div>
+
+    <h2 class="section-title">
+      <span data-en="A journey of listening &amp; understanding rural India." data-hi="गाँवों को सुनने और समझने की यात्रा।">गाँवों को सुनने और समझने की यात्रा।</span>
+    </h2>
+
+    <div class="about__cols">
+      <p class="about__lede">
+        <span data-en="Khajni Yatra is not just a political initiative — it is a sincere effort to connect with people at the grassroots. Village by village, home by home, I will stay among the people and try to truly understand their days, their struggles, and their hopes." data-hi="खजनी यात्रा कोई राजनीतिक कार्यक्रम नहीं — यह ज़मीन से जुड़ने की कोशिश है। गाँव-दर-गाँव, घर-दर-घर, मैं लोगों के बीच रहूँगा और उनकी ज़िन्दगी, उनकी तकलीफ़ें और उनकी उम्मीदें समझूँगा।">खजनी यात्रा कोई राजनीतिक कार्यक्रम नहीं — यह ज़मीन से जुड़ने की कोशिश है। गाँव-दर-गाँव, घर-दर-घर, मैं लोगों के बीच रहूँगा और उनकी ज़िन्दगी, उनकी तकलीफ़ें और उनकी उम्मीदें समझूँगा।</span>
+      </p>
+
+      <p class="about__para">
+        <span data-en="Too often manifestos are written without knowing the ground. Khajni Yatra bridges that gap — so every line in our manifesto is written by the voices of the people themselves." data-hi="अक्सर घोषणापत्र ज़मीन की सच्चाई जाने बिना लिखे जाते हैं। खजनी यात्रा इसी खाई को पाटती है — ताकि हर वादा लोगों की आवाज़ से जन्म ले।">अक्सर घोषणापत्र ज़मीन की सच्चाई जाने बिना लिखे जाते हैं। खजनी यात्रा इसी खाई को पाटती है — ताकि हर वादा लोगों की आवाज़ से जन्म ले।</span>
+      </p>
+
+      <blockquote class="about__quote">
+        <span data-en="&ldquo;Every voice matters. Every voice is heard.&rdquo;" data-hi="&ldquo;हर आवाज़ अहम है। हर आवाज़ सुनी जाएगी।&rdquo;">&ldquo;हर आवाज़ अहम है। हर आवाज़ सुनी जाएगी।&rdquo;</span>
+      </blockquote>
+
+      <p class="about__para">
+        <span data-en="This is a commitment — to stand with the people, live among them, and ensure that their concerns are truly represented." data-hi="यह एक वचन है — लोगों के साथ खड़े रहने का, उनके बीच रहने का, और उनकी चिंताओं को सच्चे मन से उठाने का।">यह एक वचन है — लोगों के साथ खड़े रहने का, उनके बीच रहने का, और उनकी चिंताओं को सच्चे मन से उठाने का।</span>
+      </p>
+    </div>
+
+    <div class="about__pillars">
+      <article>
+        <span class="pill">०१</span>
+        <h4 data-en="Listen" data-hi="सुनो">सुनो</h4>
+        <p data-en="Spend the night. Share the meal. Hear the real story." data-hi="रात वहीं बितानी है। थाली साझा करनी है। असली बात सुननी है।">रात वहीं बितानी है। थाली साझा करनी है। असली बात सुननी है।</p>
+      </article>
+      <article>
+        <span class="pill">०२</span>
+        <h4 data-en="Understand" data-hi="समझो">समझो</h4>
+        <p data-en="Every booth a different story. Every story a different need." data-hi="हर बूथ की कहानी अलग। हर कहानी की ज़रूरत अलग।">हर बूथ की कहानी अलग। हर कहानी की ज़रूरत अलग।</p>
+      </article>
+      <article>
+        <span class="pill">०३</span>
+        <h4 data-en="Act" data-hi="काम करो">काम करो</h4>
+        <p data-en="The manifesto writes itself — from your voice." data-hi="घोषणापत्र आपकी आवाज़ से खुद बनेगा।">घोषणापत्र आपकी आवाज़ से खुद बनेगा।</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CANDIDATE -->
+<section class="cand" id="candidate">
+  <div class="wrap cand__grid">
+    <div class="cand__label">
+      <span class="label-num" data-en="02" data-hi="०२">०२</span>
+      <span class="label-txt" data-en="The Candidate" data-hi="प्रत्याशी">प्रत्याशी</span>
+    </div>
+
+    <div class="cand__portrait">
+      <div class="cand__portrait-frame">
+        <div class="cand__portrait-ph">
+          <!-- replace with actual photo: assets/images/candidate.jpg -->
+          <svg viewBox="0 0 200 240" aria-hidden="true">
+            <rect width="200" height="240" fill="var(--cream-2)"/>
+            <circle cx="100" cy="90" r="42" fill="var(--red)" opacity=".15"/>
+            <path d="M30 240 C 30 170 170 170 170 240 Z" fill="var(--red)" opacity=".15"/>
+            <circle cx="100" cy="90" r="38" fill="none" stroke="var(--ink)" stroke-width="1"/>
+            <text x="100" y="220" text-anchor="middle" font-family="Fraunces" font-size="10" fill="var(--ink)" letter-spacing="3">PHOTO · फ़ोटो</text>
+          </svg>
+        </div>
+        <span class="cand__stamp">EST · जनता के साथ</span>
+      </div>
+    </div>
+
+    <div class="cand__body">
+      <h2 class="cand__name">
+        <span class="cand__name-hi" data-en="Vidya Sagar" data-hi="विद्या सागर">विद्या सागर</span>
+        <span class="cand__name-alias" data-en='urf <em>Chote Bhai</em>' data-hi='उर्फ़ <em>छोटे भाई</em>'>उर्फ़ <em>छोटे भाई</em></span>
+      </h2>
+      <p class="cand__tag" data-en="Son of the soil. Servant of the voice." data-hi="मिट्टी का बेटा · आवाज़ का सेवक">मिट्टी का बेटा · आवाज़ का सेवक</p>
+
+      <ul class="cand__list">
+        <li><span data-en="Born, raised, and rooted in the region." data-hi="यहीं जन्मा, यहीं पला, यहीं की मिट्टी में जड़ें।">यहीं जन्मा, यहीं पला, यहीं की मिट्टी में जड़ें।</span></li>
+        <li><span data-en="Walking 455 booths — no shortcuts, no staged rallies." data-hi="४५५ बूथ — कोई शॉर्टकट नहीं, कोई सजी हुई रैली नहीं।">४५५ बूथ — कोई शॉर्टकट नहीं, कोई सजी हुई रैली नहीं।</span></li>
+        <li><span data-en="Manifesto built with you, not for you." data-hi="घोषणापत्र आपके लिए नहीं — आपके साथ बनेगा।">घोषणापत्र आपके लिए नहीं — आपके साथ बनेगा।</span></li>
+      </ul>
+
+      <div class="cand__socials">
+        <a href="https://www.instagram.com/vidyasagar.ind/" target="_blank" rel="noopener">INSTAGRAM <span>↗</span></a>
+        <a href="https://www.facebook.com/vidaysagar.ind" target="_blank" rel="noopener">FACEBOOK <span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOTHS -->
+<section class="booths" id="booths">
+  <div class="wrap">
+    <div class="booths__head">
+      <div class="booths__label">
+        <span class="label-num" data-en="03" data-hi="०३">०३</span>
+        <span class="label-txt" data-en="455 Booths · One Journey" data-hi="४५५ बूथ · एक यात्रा">४५५ बूथ · एक यात्रा</span>
+      </div>
+      <h2 class="section-title">
+        <span data-en="A live map of problems — updated village by village." data-hi="समस्याओं का जीवंत नक्शा — गाँव-दर-गाँव अपडेट।">समस्याओं का जीवंत नक्शा — गाँव-दर-गाँव अपडेट।</span>
+      </h2>
+      <p class="booths__note">
+        <span data-en="Selected booths below. As the yatra reaches each area, the issues get added to our manifesto." data-hi="नीचे चुनिंदा बूथ। यात्रा जहाँ-जहाँ पहुँचेगी, वहाँ की समस्याएँ घोषणापत्र में जुड़ेंगी।">नीचे चुनिंदा बूथ। यात्रा जहाँ-जहाँ पहुँचेगी, वहाँ की समस्याएँ घोषणापत्र में जुड़ेंगी।</span>
+      </p>
+    </div>
+
+    <!-- 455-booth heatmap -->
+    <figure class="heatmap" aria-label="All 455 booths — visited, listening now, upcoming">
+      <figcaption class="heatmap__cap">
+        <span class="heatmap__title" data-en="Yatra heatmap · 455 booths" data-hi="यात्रा हीटमैप · ४५५ बूथ">यात्रा हीटमैप · ४५५ बूथ</span>
+        <span class="heatmap__legend">
+          <span><i class="sq sq--red"></i> <span data-en="Visited" data-hi="सुना">सुना</span> <em data-hm-done>0</em></span>
+          <span><i class="sq sq--green"></i> <span data-en="Listening" data-hi="सुन रहे">सुन रहे</span> <em data-hm-now>0</em></span>
+          <span><i class="sq sq--gold"></i> <span data-en="Upcoming" data-hi="आने वाला">आने वाला</span> <em data-hm-soon>0</em></span>
+        </span>
+      </figcaption>
+      <div class="heatmap__grid" data-dots></div>
+    </figure>
+
+    <!-- selected booths -->
+    <div class="booths__list">
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="07" data-hi="०७">०७</span>
+          <h3 data-en="Khajni Kendra" data-hi="खजनी केंद्र">खजनी केंद्र</h3>
+          <span class="booth__status booth__status--done" data-en="VISITED" data-hi="सुना">सुना</span>
+        </header>
+        <p data-en="Open drains near the primary school. Monsoon flooding. Families walk children through knee-deep water." data-hi="प्राथमिक विद्यालय के पास खुला नाला। बरसात में घुटनों तक पानी। बच्चे भीगते हुए स्कूल जाते हैं।">प्राथमिक विद्यालय के पास खुला नाला। बरसात में घुटनों तक पानी। बच्चे भीगते हुए स्कूल जाते हैं।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="32" data-hi="३२">३२</span>
+          <h3 data-en="Sikriganj" data-hi="सिकरीगंज">सिकरीगंज</h3>
+          <span class="booth__status booth__status--now" data-en="LISTENING" data-hi="सुन रहे">सुन रहे</span>
+        </header>
+        <p data-en="Health sub-centre shut most days. Nearest PHC is 14 km. Pregnant women travel by rickshaw." data-hi="स्वास्थ्य उपकेंद्र अक्सर बंद। नज़दीकी पीएचसी १४ किमी दूर। गर्भवती महिलाएँ रिक्शे से जाती हैं।">स्वास्थ्य उपकेंद्र अक्सर बंद। नज़दीकी पीएचसी १४ किमी दूर। गर्भवती महिलाएँ रिक्शे से जाती हैं।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="81" data-hi="८१">८१</span>
+          <h3 data-en="Unwal" data-hi="उनवल">उनवल</h3>
+          <span class="booth__status booth__status--soon" data-en="UPCOMING" data-hi="आने वाला">आने वाला</span>
+        </header>
+        <p data-en="MGNREGA dues pending for 6+ months. Farmers want cold storage for onion crop." data-hi="मनरेगा की बकाया मज़दूरी ६ माह से लंबित। किसान प्याज के लिए कोल्ड स्टोरेज चाहते हैं।">मनरेगा की बकाया मज़दूरी ६ माह से लंबित। किसान प्याज के लिए कोल्ड स्टोरेज चाहते हैं।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="104" data-hi="१०४">१०४</span>
+          <h3 data-en="Barhalganj" data-hi="बड़हलगंज">बड़हलगंज</h3>
+          <span class="booth__status booth__status--done" data-en="VISITED" data-hi="सुना">सुना</span>
+        </header>
+        <p data-en="Power cuts 8–10 hours daily. Small-scale flour mills losing a third of their output." data-hi="बिजली रोज़ ८–१० घंटे गुल। छोटी आटा चक्कियाँ एक-तिहाई आमदनी खो रही हैं।">बिजली रोज़ ८–१० घंटे गुल। छोटी आटा चक्कियाँ एक-तिहाई आमदनी खो रही हैं।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="156" data-hi="१५६">१५६</span>
+          <h3 data-en="Bansgaon" data-hi="बांसगांव">बांसगांव</h3>
+          <span class="booth__status booth__status--now" data-en="LISTENING" data-hi="सुन रहे">सुन रहे</span>
+        </header>
+        <p data-en="Old pond is now a mosquito breeder. Dengue cases every September." data-hi="पुराना पोखरा अब मच्छरों का घर। सितम्बर में हर साल डेंगू।">पुराना पोखरा अब मच्छरों का घर। सितम्बर में हर साल डेंगू।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="208" data-hi="२०८">२०८</span>
+          <h3 data-en="Chauri Chaura" data-hi="चौरी-चौरा">चौरी-चौरा</h3>
+          <span class="booth__status booth__status--soon" data-en="UPCOMING" data-hi="आने वाला">आने वाला</span>
+        </header>
+        <p data-en="Youth asking for a skills centre — tailoring, CNC, mobile repair." data-hi="नौजवानों की माँग — सिलाई, सीएनसी, मोबाइल रिपेयर का कौशल केंद्र।">नौजवानों की माँग — सिलाई, सीएनसी, मोबाइल रिपेयर का कौशल केंद्र।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="262" data-hi="२६२">२६२</span>
+          <h3 data-en="Kauriram" data-hi="कौड़ीराम">कौड़ीराम</h3>
+          <span class="booth__status booth__status--done" data-en="VISITED" data-hi="सुना">सुना</span>
+        </header>
+        <p data-en="Ration shop opens erratically. Old-age pension delays. Need ward-level grievance point." data-hi="राशन की दुकान अनियमित। वृद्धावस्था पेंशन में देरी। वार्ड स्तर पर शिकायत केंद्र चाहिए।">राशन की दुकान अनियमित। वृद्धावस्था पेंशन में देरी। वार्ड स्तर पर शिकायत केंद्र चाहिए।</p>
+      </article>
+
+      <article class="booth">
+        <header>
+          <span class="booth__no" data-en="310" data-hi="३१०">३१०</span>
+          <h3 data-en="Gola Bazaar" data-hi="गोला बाज़ार">गोला बाज़ार</h3>
+          <span class="booth__status booth__status--soon" data-en="UPCOMING" data-hi="आने वाला">आने वाला</span>
+        </header>
+        <p data-en="Traders want footpath & parking. Street vending zone. Night-time street lighting." data-hi="व्यापारी चाहते हैं फुटपाथ और पार्किंग। रेहड़ी क्षेत्र। रात की रौशनी।">व्यापारी चाहते हैं फुटपाथ और पार्किंग। रेहड़ी क्षेत्र। रात की रौशनी।</p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manif" id="manifesto">
+  <div class="wrap manif__grid">
+    <div class="manif__label">
+      <span class="label-num" data-en="04" data-hi="०४">०४</span>
+      <span class="label-txt" data-en="The Manifesto" data-hi="घोषणापत्र">घोषणापत्र</span>
+    </div>
+
+    <h2 class="section-title manif__title">
+      <span data-en="Written by the road." data-hi="सड़क पर लिखा जा रहा है।">सड़क पर लिखा जा रहा है।</span>
+    </h2>
+
+    <div class="manif__stamp">
+      <span>IN · PROGRESS</span>
+      <span>निर्माणाधीन</span>
+    </div>
+
+    <div class="manif__body">
+      <p data-en="The Khajni Manifesto is being written in real time — each chapter shaped by the villages we reach. Rather than announce a pre-cooked promise list, we publish the manifesto section by section as we listen." data-hi="खजनी घोषणापत्र जीवंत रूप से लिखा जा रहा है — हर अध्याय उस गाँव से आकार लेगा जहाँ यात्रा पहुँचेगी। पहले से पकी हुई वादों की थाली नहीं — सुनते-सुनते अध्याय दर अध्याय प्रकाशित होगा।">खजनी घोषणापत्र जीवंत रूप से लिखा जा रहा है — हर अध्याय उस गाँव से आकार लेगा जहाँ यात्रा पहुँचेगी। पहले से पकी हुई वादों की थाली नहीं — सुनते-सुनते अध्याय दर अध्याय प्रकाशित होगा।</p>
+
+      <ol class="manif__chapters">
+        <li>
+          <span class="chap-no" data-en="Chapter 01" data-hi="अध्याय ०१">अध्याय ०१</span>
+          <span class="chap-name" data-en="Water · Sanitation · Drainage" data-hi="जल · स्वच्छता · जल-निकासी">जल · स्वच्छता · जल-निकासी</span>
+          <span class="chap-status" data-en="Drafting" data-hi="लेखन जारी">लेखन जारी</span>
+        </li>
+        <li>
+          <span class="chap-no" data-en="Chapter 02" data-hi="अध्याय ०२">अध्याय ०२</span>
+          <span class="chap-name" data-en="Health at the doorstep" data-hi="द्वार पर स्वास्थ्य">द्वार पर स्वास्थ्य</span>
+          <span class="chap-status" data-en="Listening" data-hi="सुनवाई">सुनवाई</span>
+        </li>
+        <li>
+          <span class="chap-no" data-en="Chapter 03" data-hi="अध्याय ०३">अध्याय ०३</span>
+          <span class="chap-name" data-en="Farm · MSP · Cold Storage" data-hi="खेत · एमएसपी · भंडारण">खेत · एमएसपी · भंडारण</span>
+          <span class="chap-status" data-en="Listening" data-hi="सुनवाई">सुनवाई</span>
+        </li>
+        <li>
+          <span class="chap-no" data-en="Chapter 04" data-hi="अध्याय ०४">अध्याय ०४</span>
+          <span class="chap-name" data-en="Youth · Skills · Jobs" data-hi="नौजवान · कौशल · रोज़गार">नौजवान · कौशल · रोज़गार</span>
+          <span class="chap-status" data-en="Upcoming" data-hi="आने वाला">आने वाला</span>
+        </li>
+        <li>
+          <span class="chap-no" data-en="Chapter 05" data-hi="अध्याय ०५">अध्याय ०५</span>
+          <span class="chap-name" data-en="Women · Safety · Dignity" data-hi="महिला · सुरक्षा · सम्मान">महिला · सुरक्षा · सम्मान</span>
+          <span class="chap-status" data-en="Upcoming" data-hi="आने वाला">आने वाला</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- POLL -->
+<section class="poll" id="poll">
+  <div class="wrap poll__grid">
+    <div class="poll__headrow">
+      <div class="poll__label">
+        <span class="label-num" data-en="05" data-hi="०५">०५</span>
+        <span class="label-txt" data-en="Speak your mind" data-hi="जनमत">जनमत</span>
+      </div>
+      <span class="live-badge" aria-live="polite">
+        <span class="live-dot"></span>
+        <span data-en="LIVE" data-hi="लाइव">लाइव</span>
+      </span>
+    </div>
+
+    <h2 class="section-title poll__title">
+      <span data-en="What should the manifesto lead with?" data-hi="घोषणापत्र की पहली प्राथमिकता क्या हो?">घोषणापत्र की पहली प्राथमिकता क्या हो?</span>
+    </h2>
+    <p class="poll__hint" data-en="Pick up to 3. Results appear after you vote. One vote per device." data-hi="अधिकतम ३ विकल्प चुनें। मत के बाद परिणाम दिखेंगे। एक उपकरण से एक बार मत।">अधिकतम ३ विकल्प चुनें। मत के बाद परिणाम दिखेंगे। एक उपकरण से एक बार मत।</p>
+
+    <form class="poll__form" data-form="poll" data-max-pick="3" novalidate>
+      <div class="poll__options">
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Water & Drainage">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">जल एवं जल-निकासी</span>
+            <span class="poll__opt-en">Water &amp; Drainage</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Health">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">स्वास्थ्य</span>
+            <span class="poll__opt-en">Health</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Farm & MSP">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">किसानी और एमएसपी</span>
+            <span class="poll__opt-en">Farm &amp; MSP</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Jobs & Skills">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">रोज़गार और कौशल</span>
+            <span class="poll__opt-en">Jobs &amp; Skills</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Women Safety">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">महिला सुरक्षा</span>
+            <span class="poll__opt-en">Women Safety</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+        <label class="poll__opt">
+          <input type="checkbox" name="priority" value="Power & Roads">
+          <span class="poll__opt-box">
+            <span class="poll__opt-hi">बिजली और सड़क</span>
+            <span class="poll__opt-en">Power &amp; Roads</span>
+            <span class="poll__bar" data-bar><i></i><b>0</b></span>
+          </span>
+        </label>
+      </div>
+
+      <div class="poll__foot">
+        <input type="text" name="location" placeholder="गाँव / बूथ / कस्बा / शहर · Village / Booth / Town / City (anyone can vote)" aria-label="Your location" />
+        <button type="submit" class="btn btn--green">
+          <span data-en="Cast my vote" data-hi="मत दर्ज करें">मत दर्ज करें</span>
+        </button>
+      </div>
+      <p class="poll__count" data-poll-total></p>
+      <p class="form__status" data-status></p>
+    </form>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="fb" id="feedback">
+  <div class="wrap fb__grid">
+    <div class="fb__label">
+      <span class="label-num" data-en="06" data-hi="०६">०६</span>
+      <span class="label-txt" data-en="Your Voice · private" data-hi="आपकी आवाज़ · निजी">आपकी आवाज़ · निजी</span>
+    </div>
+
+    <div class="fb__copy">
+      <h2 class="section-title">
+        <span data-en="Tell me what you would change — only I will read it." data-hi="बताइए, क्या बदलाव चाहिए — यह सिर्फ़ मुझ तक पहुँचेगा।">बताइए, क्या बदलाव चाहिए — यह सिर्फ़ मुझ तक पहुँचेगा।</span>
+      </h2>
+      <p class="fb__sub">
+        <span data-en="Your message goes straight to my inbox. No committee. No filter. No politics." data-hi="आपकी बात सीधे मेरी इनबॉक्स में आएगी। कोई कमेटी नहीं। कोई छानना नहीं। कोई राजनीति नहीं।">आपकी बात सीधे मेरी इनबॉक्स में आएगी। कोई कमेटी नहीं। कोई छानना नहीं। कोई राजनीति नहीं।</span>
+      </p>
+      <ul class="fb__ticks">
+        <li><span data-en="Private · only the candidate sees it" data-hi="निजी · केवल प्रत्याशी देखेंगे">निजी · केवल प्रत्याशी देखेंगे</span></li>
+        <li><span data-en="No phone calls unless you ask" data-hi="बिना कहे फ़ोन नहीं आएगा">बिना कहे फ़ोन नहीं आएगा</span></li>
+        <li><span data-en="Every message is read" data-hi="हर संदेश पढ़ा जाएगा">हर संदेश पढ़ा जाएगा</span></li>
+      </ul>
+    </div>
+
+    <form class="fb__form" data-form="feedback" novalidate>
+      <label class="field">
+        <span class="field__label" data-en="Your Name" data-hi="आपका नाम">आपका नाम</span>
+        <input type="text" name="name" required autocomplete="name" />
+      </label>
+
+      <label class="field">
+        <span class="field__label" data-en="Phone (optional)" data-hi="फ़ोन (वैकल्पिक)">फ़ोन (वैकल्पिक)</span>
+        <input type="tel" name="phone" inputmode="numeric" autocomplete="tel" pattern="[0-9+\s\-]{6,15}" />
+      </label>
+
+      <label class="field">
+        <span class="field__label" data-en="Village / Booth / Town / City" data-hi="गाँव / बूथ / कस्बा / शहर">गाँव / बूथ / कस्बा / शहर</span>
+        <input type="text" name="location" placeholder="Anyone can share — no area restriction / किसी भी क्षेत्र से" />
+      </label>
+
+      <label class="field">
+        <span class="field__label" data-en="Your suggestion, concern, or story" data-hi="आपका सुझाव, शिकायत या कहानी">आपका सुझाव, शिकायत या कहानी</span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <button type="submit" class="btn btn--red btn--wide">
+        <span data-en="Send to Chote Bhai" data-hi="छोटे भाई तक पहुँचाएँ">छोटे भाई तक पहुँचाएँ</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12l16-8-6 18-3-8-7-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form__status" data-status></p>
+      <p class="fb__note" data-en="Responses are kept private and are stored securely." data-hi="उत्तर निजी रखे जाते हैं और सुरक्षित संग्रहित होते हैं।">उत्तर निजी रखे जाते हैं और सुरक्षित संग्रहित होते हैं।</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOLLOW / SOCIALS -->
+<section class="join" id="join">
+  <div class="wrap join__grid">
+    <div class="join__label">
+      <span class="label-num" data-en="07" data-hi="०७">०७</span>
+      <span class="label-txt" data-en="Walk with us" data-hi="साथ चलिए">साथ चलिए</span>
+    </div>
+
+    <h2 class="join__title">
+      <span data-en="Follow the yatra as it happens." data-hi="यात्रा को लाइव फ़ॉलो कीजिए।">यात्रा को लाइव फ़ॉलो कीजिए।</span>
+    </h2>
+    <p class="join__sub">
+      <span data-en="Daily updates, village stories, and manifesto drafts — straight from the road." data-hi="रोज़ाना अपडेट, गाँव की कहानियाँ और घोषणापत्र के मसौदे — सीधे सड़क से।">रोज़ाना अपडेट, गाँव की कहानियाँ और घोषणापत्र के मसौदे — सीधे सड़क से।</span>
+    </p>
+
+    <div class="join__socials-row">
+      <a class="sm-card" href="https://www.instagram.com/prabhatsagar.ind/" target="_blank" rel="noopener" data-sm="ig">
+        <span class="sm-icn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+        </span>
+        <span class="sm-body">
+          <span class="sm-lbl">INSTAGRAM · YATRA</span>
+          <strong>@prabhatsagar.ind</strong>
+        </span>
+        <span class="sm-arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="sm-card" href="#" data-fb-yatra target="_blank" rel="noopener" data-sm="fb">
+        <span class="sm-icn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13 22v-8h2.8l.4-3.2H13V8.7c0-.9.3-1.6 1.7-1.6H16.4V4.1C16 4 15 4 13.9 4c-2.4 0-4 1.5-4 4.2v2.6H7V14h2.9v8H13z"/></svg>
+        </span>
+        <span class="sm-body">
+          <span class="sm-lbl">FACEBOOK · YATRA</span>
+          <strong data-en="Khajni Yatra" data-hi="खजनी यात्रा">खजनी यात्रा</strong>
+        </span>
+        <span class="sm-arr" aria-hidden="true">↗</span>
+      </a>
+      <a class="sm-card" href="#" data-yt-yatra target="_blank" rel="noopener" data-sm="yt">
+        <span class="sm-icn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.5 4 12 4 12 4s-4.5 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.3.8 11.2v1.6c0 1.8.2 3.7.2 3.7s.2 1.6.9 2.3c.8.9 1.9.8 2.4.9 1.7.2 7.7.2 7.7.2s4.5 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.8.2-3.7v-1.6c0-1.8-.2-3.7-.2-3.7zM9.8 15V8.4l5.8 3.3-5.8 3.3z"/></svg>
+        </span>
+        <span class="sm-body">
+          <span class="sm-lbl">YOUTUBE · YATRA</span>
+          <strong data-en="Khajni Yatra" data-hi="खजनी यात्रा">खजनी यात्रा</strong>
+        </span>
+        <span class="sm-arr" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="join__cand">
+      <span class="join__cand-lbl" data-en="Candidate profiles" data-hi="प्रत्याशी के पेज">प्रत्याशी के पेज</span>
+      <a href="https://www.instagram.com/vidyasagar.ind/" target="_blank" rel="noopener">IG · @vidyasagar.ind ↗</a>
+      <a href="https://www.facebook.com/vidaysagar.ind" target="_blank" rel="noopener">FB · Vidya Sagar ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <svg class="brand__cycle" viewBox="0 0 64 40" aria-hidden="true">
+        <circle cx="14" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="50" cy="28" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M14 28 L28 10 L42 28 L32 28 L26 18 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M42 28 L34 12 L40 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="foot__hi">खजनी यात्रा</span>
+      <span class="foot__en">KHAJNI YATRA</span>
+    </div>
+    <p class="foot__tag">
+      <span data-en="घर छोड़ो · खजनी जोड़ो · रुख़ मोड़ो" data-hi="घर छोड़ो · खजनी जोड़ो · रुख़ मोड़ो">घर छोड़ो · खजनी जोड़ो · रुख़ मोड़ो</span>
+    </p>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#about" data-en="About" data-hi="परिचय">परिचय</a>
+      <a href="#candidate" data-en="Candidate" data-hi="प्रत्याशी">प्रत्याशी</a>
+      <a href="#booths" data-en="Booths" data-hi="बूथ">बूथ</a>
+      <a href="#manifesto" data-en="Manifesto" data-hi="घोषणापत्र">घोषणापत्र</a>
+      <a href="#feedback" data-en="Feedback" data-hi="सुझाव">सुझाव</a>
+      <a href="#join" data-en="Join" data-hi="जुड़ें">जुड़ें</a>
+    </nav>
+    <p class="foot__credit">
+      © <span data-year></span> · <span data-en="Khajni Yatra. All voices reserved." data-hi="खजनी यात्रा। हर आवाज़ सुरक्षित।">खजनी यात्रा। हर आवाज़ सुरक्षित।</span>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
