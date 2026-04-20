@@ -163,7 +163,7 @@ body { top: 0 !important; } /* suppress Google Translate banner push */
 /* ---------- wide poster banner ---------- */
 .poster { margin: 24px auto 40px; position: relative; }
 .poster__frame {
-  position: relative; aspect-ratio: 21 / 8;
+  position: relative; aspect-ratio: 2 / 1;
   border-radius: 22px; overflow: hidden;
   background: linear-gradient(135deg, #1B1B1B 0%, #3a1313 50%, #0f7b3c 100%);
   box-shadow: 0 30px 80px -40px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.4) inset;
@@ -957,12 +957,8 @@ body[data-lang="en"] .sm-card strong { font-family: var(--font-en-display); font
   .nav { padding-inline: 0; }
   .hero__card-meta { grid-template-columns: 1fr 1fr; }
   .heatmap__grid { grid-template-columns: repeat(18, 1fr); gap: 2px; }
-  .poster__frame { aspect-ratio: 4 / 3; }
+  .poster__chip { top: 8px; right: 8px; padding: 6px 10px; font-size: 9px; letter-spacing: .14em; }
   .poster__hi { font-size: clamp(38px, 12vw, 72px); }
-  .poster__date { top: 10px; left: 10px; padding: 8px 10px; }
-  .poster__date strong { font-size: 16px; }
-  .poster__date small { font-size: 9px; padding-left: 8px; }
-  .poster__chip { top: 10px; right: 10px; font-size: 10px; }
   .foot__nav { gap: 10px; }
   .foot__nav a { font-size: 11px; }
 }
