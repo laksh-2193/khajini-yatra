@@ -4,65 +4,66 @@
  * Bound to sheet:
  *   https://docs.google.com/spreadsheets/d/1MBGewIiTatjRgV8zQVekzEehYMMjkoRAlRqCOSvA-FA/
  *
- * Handles:
- *   - POST /exec        : feedback + poll submissions
- *                         Rejects duplicate IPs per form.
- *                         Stores row in Sheet.
- *                         Emails feedback to candidate.
- *                         Returns live vote counts on successful poll.
- *   - GET  /exec?action=counts : returns live vote counts (for page load refresh)
+ * Client talks to this Web App with a fire-and-forget pattern
+ * (sendBeacon / no-cors fetch) so the POST response body is opaque.
+ * After a poll vote, the client fetches counts separately via GET.
  *
- * ============== SETUP (one-time, ~2 minutes) ==============
+ * Endpoints:
+ *   POST /exec                     form submission (feedback | poll)
+ *                                  - Writes a row on success.
+ *                                  - Silently drops duplicate IPs (no error).
+ *                                  - Emails candidate on feedback.
+ *                                  - Response body is NOT read by client —
+ *                                    return minimal JSON for logs only.
+ *   GET  /exec?action=counts       live poll tallies (client reads this).
+ *   GET  /exec                     health probe.
+ *
+ * ============== SETUP (one-time) ==============
  *
  * 1. https://script.google.com → New Project.
- * 2. Paste this whole file into Code.gs.
- * 3. (Optional) Left sidebar → Project Settings → Script properties → add:
- *       NOTIFY_EMAIL    =  <candidate's private inbox>     (for email on feedback)
- *       SPREADSHEET_ID  =  <override>                      (only if switching sheets)
- *    The SPREADSHEET_ID defaults to the one above — no property needed.
- *    Tabs "feedback" and "poll" are auto-created on first write.
- * 4. Deploy (top-right) → New deployment → gear → Web app.
- *       Execute as:    Me
- *       Who has access: Anyone
+ * 2. Paste this file into Code.gs. Save.
+ * 3. (Optional) Project Settings → Script properties:
+ *       NOTIFY_EMAIL    =  <candidate's private inbox>   (enables feedback email)
+ *       SPREADSHEET_ID  =  <override>                    (only if swapping sheet)
+ *    Defaults to the sheet above; tabs "feedback" + "poll" auto-create.
+ * 4. Deploy → New deployment → gear → Web app
+ *       Execute as:      Me
+ *       Who has access:  Anyone
  * 5. Authorize. Copy the "Web app URL".
- * 6. Paste that URL in assets/js/main.js → CONFIG.APPS_SCRIPT_URL.
+ * 6. Paste URL into assets/js/main.js → CONFIG.APPS_SCRIPT_URL.
  *
- * =========================================================
+ * Re-deploy (NOT manage deployments → edit) every time you push code
+ * changes — or use "New version" so the /exec URL stays the same.
+ *
+ * ==============================================
  */
 
 // ---------- config ----------
 var DEFAULT_SPREADSHEET_ID = "1MBGewIiTatjRgV8zQVekzEehYMMjkoRAlRqCOSvA-FA";
 
+var FORM_TYPES = { feedback: true, poll: true };
+
 // ---------- entry points ----------
 function doPost(e) {
   try {
-    var body = e && e.postData && e.postData.contents
-      ? JSON.parse(e.postData.contents)
-      : {};
+    var body = _parseBody(e);
+    var formType = String(body.formType || "feedback").toLowerCase();
+    if (!FORM_TYPES[formType]) return _json({ ok: false, error: "Unknown formType" });
 
-    var formType = (body.formType || "feedback").toString().toLowerCase();
-    if (formType !== "feedback" && formType !== "poll") {
-      return _json({ ok: false, error: "Unknown formType" });
-    }
-
-    // ---- IP dedup ----
     var ip = String(body.ip || "").trim();
+
+    // Silent duplicate-IP drop — client can't read this response anyway,
+    // so we just skip the row write and return ok. Keeps the sheet clean.
     if (ip && _isDuplicateIP(formType, ip)) {
-      var out = { ok: false, reason: "duplicate" };
-      if (formType === "poll") out.counts = _computePollCounts();
-      return _json(out);
+      return _json({ ok: true, deduped: true });
     }
 
     _appendRow(formType, body);
+    if (formType === "feedback") _notifyCandidate(body);
 
-    if (formType === "feedback") {
-      _notifyCandidate(body);
-      return _json({ ok: true });
-    }
-
-    // poll — return updated counts
-    return _json({ ok: true, counts: _computePollCounts() });
+    return _json({ ok: true });
   } catch (err) {
+    // Best-effort error log; client under no-cors won't see this.
     return _json({ ok: false, error: String(err && err.message || err) });
   }
 }
@@ -80,6 +81,12 @@ function doGet(e) {
 }
 
 // ---------- helpers ----------
+
+function _parseBody(e) {
+  if (!e || !e.postData || !e.postData.contents) return {};
+  try { return JSON.parse(e.postData.contents) || {}; }
+  catch (err) { return {}; }
+}
 
 function _getSheet(tabName) {
   var id = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID") || DEFAULT_SPREADSHEET_ID;
@@ -123,7 +130,6 @@ function _appendRow(formType, body) {
   var sheet = _getSheet(formType);
   var headers = _headers(formType);
   _ensureHeaders(sheet, headers);
-
   var row = headers.map(function (h) {
     if (h === "timestamp") return body.submittedAt || new Date().toISOString();
     return body[h] != null ? String(body[h]) : "";
