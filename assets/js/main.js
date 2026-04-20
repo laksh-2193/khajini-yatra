@@ -11,7 +11,7 @@
 const CONFIG = {
   // Deploy apps-script/Code.gs as a Web App. Paste the URL below.
   // Format: https://script.google.com/macros/s/XXXX/exec
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxze-8W1X5xJ43t-BGl3HDom40Esj-85LzcWvgVAcjoOkuNt7XLXZyUOMt8nURPNzMc/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbx5uwESUJD8PYA34Ax7p4vbKDOqBo-3_xzsM2WfjN1X7ISPmgqyKTOKYrFcFjZGiqin/exec",
 
   // AWS public IP echo service — used to dedupe submissions by IP.
   AWS_CHECKIP_URL: "https://checkip.amazonaws.com/",
