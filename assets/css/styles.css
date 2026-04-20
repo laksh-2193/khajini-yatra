@@ -615,6 +615,13 @@ body[data-lang="en"] .heatmap__title { font-family: var(--font-en-display); font
   box-shadow: 0 0 0 2px var(--cream), 0 6px 14px -6px rgba(0,0,0,.4);
 }
 .heatmap__grid span[data-state="done"] { background: var(--red); }
+.heatmap__grid span[data-first="1"] {
+  box-shadow: 0 0 0 2px var(--cream), 0 0 0 3px var(--gold);
+  transform: scale(1.15);
+  z-index: 2; position: relative;
+}
+.booth--first { border-color: rgba(199,154,58,.5); background: linear-gradient(180deg, rgba(199,154,58,.06), var(--cream)); }
+.booth--first .booth__no { color: var(--gold); }
 .heatmap__grid span[data-state="now"]  { background: var(--green); animation: blink 1.8s ease-in-out infinite; }
 .heatmap__grid span[data-state="soon"] { background: var(--gold); }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }

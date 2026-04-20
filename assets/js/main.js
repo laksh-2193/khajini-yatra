@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ========= HEATMAP (455 booths, dummy state) ================== */
 const HEATMAP = {
   total: 455,
-  done: [7, 104, 262, 11, 23, 45, 88, 126, 189, 231, 275, 301, 340, 400, 420, 13, 67, 92, 118, 144, 167, 210, 235, 260, 285, 315, 355, 380, 405, 430, 450],
+  // booth 1 = Bhabhaya (भभया) — first visit
+  first: 1,
+  done: [1, 7, 104, 262, 11, 23, 45, 88, 126, 189, 231, 275, 301, 340, 400, 420, 13, 67, 92, 118, 144, 167, 210, 235, 260, 285, 315, 355, 380, 405, 430, 450],
   now:  [32, 156, 60, 198, 250, 333, 410, 75, 109, 172],
   soon: [81, 208, 310, 100, 170, 220, 280, 360, 440, 26, 50, 115, 138, 175, 240, 295, 325, 370, 395, 425],
 };
@@ -51,7 +53,8 @@ function initHeatmap() {
   for (let i = 1; i <= HEATMAP.total; i++) {
     const dot = document.createElement("span");
     if (state[i] !== "pending") dot.dataset.state = state[i];
-    dot.title = `Booth ${i}`;
+    if (i === HEATMAP.first) { dot.dataset.first = "1"; dot.title = "Booth 1 · Bhabhaya (first visit)"; }
+    else dot.title = `Booth ${i}`;
     frag.appendChild(dot);
   }
   host.appendChild(frag);
