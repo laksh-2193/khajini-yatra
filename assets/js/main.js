@@ -129,6 +129,38 @@ async function fetchIP() {
   return "";
 }
 
+/* ========= 4b. FIRE-AND-FORGET POST ========================== */
+// Apps Script doesn't reliably allow CORS-readable POST responses in all
+// browsers. Fire the payload without waiting for the body (sendBeacon
+// preferred, no-cors fetch fallback), then use a separate GET for data.
+function firePost(url, payload) {
+  const body = JSON.stringify(payload);
+  try {
+    if (typeof navigator !== "undefined" && navigator.sendBeacon) {
+      const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+      if (navigator.sendBeacon(url, blob)) return true;
+    }
+  } catch (e) { /* fall through */ }
+  try {
+    fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+    return true;
+  } catch (e) { return false; }
+}
+
+async function fetchPollCountsRemote() {
+  const r = await fetch(CONFIG.APPS_SCRIPT_URL + "?action=counts", { cache: "no-store" });
+  if (!r.ok) throw new Error("counts " + r.status);
+  return r.json();
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
 /* ========= 5. POLL — checkbox max-3 enforcement =============== */
 function initPollMaxPick(form) {
   const max = Number(form.dataset.maxPick) || 3;
@@ -166,7 +198,6 @@ function initForms() {
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const status = form.querySelector("[data-status]");
       const btn = form.querySelector("button[type=submit]");
 
       // validation
@@ -210,59 +241,44 @@ function initForms() {
       btn && (btn.disabled = true);
       setStatus(form, true, "Sending…", "भेजा जा रहा है…");
 
-      try {
-        const res = await fetch(CONFIG.APPS_SCRIPT_URL, {
-          method: "POST",
-          mode: "cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error("Server " + res.status);
-        const data = await res.json().catch(() => ({ ok: true }));
-
-        if (data.ok === false) {
-          // server rejected (e.g. duplicate IP)
-          if (data.reason === "duplicate") {
-            if (kind === "poll") {
-              localStorage.setItem(localKey, "1");
-              if (data.counts) renderPollCounts(form, data.counts);
-              form.classList.add("is-submitted");
-              setStatus(form, false,
-                "This IP has already voted. Showing current results.",
-                "इस IP से पहले ही मत दर्ज है। परिणाम दिखाए गए हैं।");
-            } else {
-              localStorage.setItem(localKey, "1");
-              setStatus(form, false,
-                "This IP has already submitted feedback.",
-                "इस IP से पहले ही सुझाव दर्ज है।");
-              btn && (btn.disabled = true);
-            }
-            return;
-          }
-          throw new Error(data.error || "rejected");
-        }
-
-        // success
-        localStorage.setItem(localKey, "1");
-        if (kind === "poll" && data.counts) {
-          form.classList.add("is-submitted");
-          renderPollCounts(form, data.counts);
-          setStatus(form, true,
-            "Vote recorded. See what others think ↓",
-            "मत दर्ज हुआ। दूसरे क्या सोचते हैं — देखें ↓");
-        } else {
-          form.reset();
-          setStatus(form, true,
-            "Sent. Chote Bhai will read your message.",
-            "भेज दिया गया। छोटे भाई आपका संदेश पढ़ेंगे।");
-          btn && (btn.disabled = true);
-        }
-      } catch (err) {
-        console.error(err);
+      // Fire-and-forget. Response body is opaque under no-cors/sendBeacon,
+      // so trust the local write and fetch counts separately for polls.
+      const fired = firePost(CONFIG.APPS_SCRIPT_URL, payload);
+      if (!fired) {
         setStatus(form, false,
           "Could not send. Please try again in a moment.",
           "भेजने में दिक़्क़त। कृपया थोड़ी देर में फिर से कोशिश करें।");
         btn && (btn.disabled = false);
+        return;
+      }
+
+      localStorage.setItem(localKey, "1");
+
+      if (kind === "poll") {
+        form.classList.add("is-submitted");
+        setStatus(form, true,
+          "Vote recorded. Fetching live results…",
+          "मत दर्ज हुआ। परिणाम लाए जा रहे हैं…");
+        // Give the Apps Script a beat to write the row.
+        await wait(1500);
+        try {
+          const data = await fetchPollCountsRemote();
+          if (data && data.counts) renderPollCounts(form, data.counts);
+          setStatus(form, true,
+            "Vote recorded. See what others think ↓",
+            "मत दर्ज हुआ। दूसरे क्या सोचते हैं — देखें ↓");
+        } catch (err) {
+          console.warn(err);
+          setStatus(form, true,
+            "Vote recorded. Results will appear on next reload.",
+            "मत दर्ज हुआ। परिणाम अगली बार दिखेंगे।");
+        }
+      } else {
+        form.reset();
+        setStatus(form, true,
+          "Sent. Chote Bhai will read your message.",
+          "भेज दिया गया। छोटे भाई आपका संदेश पढ़ेंगे।");
+        btn && (btn.disabled = true);
       }
     });
   });
@@ -319,7 +335,7 @@ async function initPollCounts(formMaybe) {
   if (!alreadySubmitted) return;
   form.classList.add("is-submitted");
 
-  // try cached counts first
+  // cached first for instant paint
   try {
     const cached = localStorage.getItem("ky-poll-counts");
     if (cached) renderPollCounts(form, JSON.parse(cached));
@@ -328,11 +344,9 @@ async function initPollCounts(formMaybe) {
   if (!CONFIG.APPS_SCRIPT_URL || CONFIG.APPS_SCRIPT_URL.includes("REPLACE_WITH")) return;
 
   try {
-    const r = await fetch(CONFIG.APPS_SCRIPT_URL + "?action=counts", { cache: "no-store" });
-    if (!r.ok) return;
-    const data = await r.json();
-    if (data.ok && data.counts) renderPollCounts(form, data.counts);
-  } catch (e) { /* silent */ }
+    const data = await fetchPollCountsRemote();
+    if (data && data.ok && data.counts) renderPollCounts(form, data.counts);
+  } catch { /* silent */ }
 }
 
 /* ========= 8. FOOTER YEAR + EXTERNAL LINKS ==================== */
