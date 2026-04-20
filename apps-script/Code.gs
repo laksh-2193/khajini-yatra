@@ -1,6 +1,9 @@
 /**
  * KHAJNI YATRA — Google Apps Script backend
  * ------------------------------------------
+ * Bound to sheet:
+ *   https://docs.google.com/spreadsheets/d/1MBGewIiTatjRgV8zQVekzEehYMMjkoRAlRqCOSvA-FA/
+ *
  * Handles:
  *   - POST /exec        : feedback + poll submissions
  *                         Rejects duplicate IPs per form.
@@ -9,23 +12,26 @@
  *                         Returns live vote counts on successful poll.
  *   - GET  /exec?action=counts : returns live vote counts (for page load refresh)
  *
- * ============== SETUP (one-time, ~3 minutes) ==============
+ * ============== SETUP (one-time, ~2 minutes) ==============
  *
  * 1. https://script.google.com → New Project.
  * 2. Paste this whole file into Code.gs.
- * 3. Left sidebar → Project Settings → Script properties → add:
- *       SPREADSHEET_ID  =  <id of your Google Sheet>
- *       NOTIFY_EMAIL    =  <candidate's private inbox>
- *    (Get SPREADSHEET_ID from the Sheet's URL between /d/ and /edit.)
- * 4. In the Sheet, create two tabs: "feedback" and "poll". Leave them empty.
- * 5. Deploy (top-right) → New deployment → gear → Web app.
+ * 3. (Optional) Left sidebar → Project Settings → Script properties → add:
+ *       NOTIFY_EMAIL    =  <candidate's private inbox>     (for email on feedback)
+ *       SPREADSHEET_ID  =  <override>                      (only if switching sheets)
+ *    The SPREADSHEET_ID defaults to the one above — no property needed.
+ *    Tabs "feedback" and "poll" are auto-created on first write.
+ * 4. Deploy (top-right) → New deployment → gear → Web app.
  *       Execute as:    Me
  *       Who has access: Anyone
- * 6. Authorize. Copy the "Web app URL".
- * 7. Paste that URL in assets/js/main.js → CONFIG.APPS_SCRIPT_URL.
+ * 5. Authorize. Copy the "Web app URL".
+ * 6. Paste that URL in assets/js/main.js → CONFIG.APPS_SCRIPT_URL.
  *
  * =========================================================
  */
+
+// ---------- config ----------
+var DEFAULT_SPREADSHEET_ID = "1MBGewIiTatjRgV8zQVekzEehYMMjkoRAlRqCOSvA-FA";
 
 // ---------- entry points ----------
 function doPost(e) {
@@ -76,8 +82,8 @@ function doGet(e) {
 // ---------- helpers ----------
 
 function _getSheet(tabName) {
-  var id = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID");
-  if (!id) throw new Error("SPREADSHEET_ID script property is not set.");
+  var id = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID") || DEFAULT_SPREADSHEET_ID;
+  if (!id) throw new Error("SPREADSHEET_ID is not configured.");
   var ss = SpreadsheetApp.openById(id);
   var sheet = ss.getSheetByName(tabName);
   if (!sheet) sheet = ss.insertSheet(tabName);
