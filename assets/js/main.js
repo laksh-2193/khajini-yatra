@@ -34,37 +34,51 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ========= HEATMAP (455 booths, dummy state) ================== */
+const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 const HEATMAP = {
   total: 455,
   // booths 415 + 416 = Bhabhaya (भभया) — first visit
   first: 415,
   firstSpan: [415, 416],
-  done: [415, 416],
-  now:  [],
-  soon: [],
+  done: [348, 349, ...range(400, 423)],
+  soon: range(424, 455),
+  now:  [438, 440],
+  labels: {
+    438: { en: "Saukhor Bujurg", hi: "सौखोर बुजुर्ग" },
+    440: { en: "Sohna",          hi: "सोहना" },
+    443: { en: "Basahi",         hi: "बसही" },
+  },
 };
 function initHeatmap() {
   const host = document.querySelector("[data-dots]");
   if (!host) return;
   const state = new Array(HEATMAP.total + 1).fill("pending");
-  ["done","now","soon"].forEach(k => HEATMAP[k].forEach(n => {
+  // Apply order matters: `now` is applied last so listening overrides the
+  // surrounding upcoming block.
+  ["done","soon","now"].forEach(k => HEATMAP[k].forEach(n => {
     if (n >= 1 && n <= HEATMAP.total) state[n] = k;
   }));
   const firstSet = new Set(HEATMAP.firstSpan || [HEATMAP.first]);
+  const labels = HEATMAP.labels || {};
   const frag = document.createDocumentFragment();
+  const counts = { done: 0, now: 0, soon: 0 };
   for (let i = 1; i <= HEATMAP.total; i++) {
     const dot = document.createElement("span");
-    if (state[i] !== "pending") dot.dataset.state = state[i];
+    if (state[i] !== "pending") {
+      dot.dataset.state = state[i];
+      if (counts[state[i]] !== undefined) counts[state[i]]++;
+    }
     if (firstSet.has(i)) { dot.dataset.first = "1"; dot.title = `Booth ${i} · Bhabhaya (first visit)`; }
+    else if (labels[i]) dot.title = `Booth ${i} · ${labels[i].en}`;
     else dot.title = `Booth ${i}`;
     frag.appendChild(dot);
   }
   host.appendChild(frag);
 
   const set = (sel, val) => { const el = document.querySelector(sel); if (el) el.textContent = val; };
-  set("[data-hm-done]", HEATMAP.done.length);
-  set("[data-hm-now]",  HEATMAP.now.length);
-  set("[data-hm-soon]", HEATMAP.soon.length);
+  set("[data-hm-done]", counts.done);
+  set("[data-hm-now]",  counts.now);
+  set("[data-hm-soon]", counts.soon);
 }
 
 /* ========= 1. LANGUAGE TOGGLE ================================= */

@@ -619,7 +619,7 @@ body[data-lang="en"] .heatmap__title { font-family: var(--font-en-display); font
   transform: scale(1.6); z-index: 1; position: relative;
   box-shadow: 0 0 0 2px var(--cream), 0 6px 14px -6px rgba(0,0,0,.4);
 }
-.heatmap__grid span[data-state="done"] { background: var(--red); }
+.heatmap__grid span[data-state="done"] { background: var(--green); }
 .heatmap__grid span[data-first="1"] {
   box-shadow: 0 0 0 2px var(--cream), 0 0 0 3px var(--gold);
   transform: scale(1.15);
@@ -627,13 +627,14 @@ body[data-lang="en"] .heatmap__title { font-family: var(--font-en-display); font
 }
 .booth--first { border-color: rgba(199,154,58,.5); background: linear-gradient(180deg, rgba(199,154,58,.06), var(--cream)); }
 .booth--first .booth__no { color: var(--gold); }
-.heatmap__grid span[data-state="now"]  { background: var(--green); animation: blink 1.8s ease-in-out infinite; }
+.heatmap__grid span[data-state="now"]  { background: var(--green-deep); animation: blink 1.8s ease-in-out infinite; }
 .heatmap__grid span[data-state="soon"] { background: var(--gold); }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
 
 .sq { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
 .sq--red { background: var(--red); }
 .sq--green { background: var(--green); }
+.sq--green-deep { background: var(--green-deep); }
 .sq--gold { background: var(--gold); }
 
 .booths__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
@@ -661,7 +662,7 @@ body[data-lang="en"] .booth h3 { font-family: var(--font-en-display); font-style
 .booth__status::before {
   content: ""; width: 6px; height: 6px; border-radius: 999px; background: currentColor;
 }
-.booth__status--done { background: rgba(215,35,35,.12);  color: var(--red-deep);    border-color: rgba(215,35,35,.22); }
+.booth__status--done { background: rgba(15,123,60,.10);  color: var(--green-deep);  border-color: rgba(15,123,60,.22); }
 .booth__status--now  { background: rgba(15,123,60,.14);  color: var(--green-deep);  border-color: rgba(15,123,60,.26); animation: statusPulse 2.2s ease-in-out infinite; }
 .booth__status--soon { background: rgba(199,154,58,.18); color: #7a5d10;            border-color: rgba(199,154,58,.35); }
 @keyframes statusPulse {
